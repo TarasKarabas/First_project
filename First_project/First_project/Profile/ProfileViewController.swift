@@ -11,7 +11,7 @@ class ProfileViewController: UIViewController {
     
     var profile = ProfileView()
     
-    let areaView: UIView = {
+   private let areaView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +58,7 @@ class ProfileViewController: UIViewController {
     
     @objc func shareProfile() {
         let view = ShareViewController()
-        //        let shareView = UINavigationController(rootViewController: view)
+//                let shareView = UINavigationController(rootViewController: view)
         present(view, animated: true, completion: nil)
     }
     

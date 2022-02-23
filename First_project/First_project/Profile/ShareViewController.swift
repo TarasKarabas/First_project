@@ -9,7 +9,19 @@ import UIKit
 
 class ShareViewController: UIViewController {
 
-    private var button = UIButton()
+    private var button: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = 14
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 10, height: 10)
+        button.layer.shadowOpacity = 0.8
+        button.layer.shadowRadius = 10
+        button.backgroundColor = .white
+        button.setTitle("Send", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(sendTo), for: .touchUpInside )
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +35,6 @@ class ShareViewController: UIViewController {
         
         view.addSubview(button)
         button.frame = CGRect(x: 90, y: 230, width: 200, height: 52)
-        button.layer.cornerRadius = 14
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 10, height: 10)
-        button.layer.shadowOpacity = 0.8
-        button.layer.shadowRadius = 10
-        button.backgroundColor = .white
-        button.setTitle("Send", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(sendTo), for: .touchUpInside )
         
     }
     
