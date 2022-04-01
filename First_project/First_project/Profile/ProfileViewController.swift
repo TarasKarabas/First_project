@@ -9,14 +9,16 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    var profile = ProfileView()
+//    var profile = ProfileView()
     
    private let areaView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+       view.backgroundColor = .lightGray
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    private let profileHeader = ProfileHeaderView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,18 +31,18 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = .systemGroupedBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        view.addSubview(areaView)
+        [areaView].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview($0)
+        }
         
-        areaView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        areaView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        areaView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        areaView
-            .rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
-        
-        //        let widht:CGFloat = 60
-        //
-        //        areaView.widthAnchor.constraint(equalToConstant: widht).isActive = true
-        //        areaView.heightAnchor.constraint(equalToConstant: widht).isActive = true
+        NSLayoutConstraint.activate([
+            areaView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            areaView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            areaView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            areaView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
+        ])
+
         let shareProfileButton = UIBarButtonItem(image: UIImage(systemName: "text.justify"),  style: .plain, target: self, action: #selector(settingsProfile))
         shareProfileButton.tintColor = .black
         
@@ -48,6 +50,13 @@ class ProfileViewController: UIViewController {
         settingsProfileButton.tintColor = .black
         
         navigationItem.rightBarButtonItems = [shareProfileButton, settingsProfileButton]
+        
+        view.addSubview(profileHeader)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        profileHeader.frame = CGRect(x: 0, y: 143, width: view.bounds.width, height:  300)
     }
     
     override func viewWillAppear(_ animated: Bool) {

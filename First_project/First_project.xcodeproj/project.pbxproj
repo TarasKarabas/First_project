@@ -17,10 +17,12 @@
 		14BEA63F27C6217600192C65 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA63E27C6217600192C65 /* ProfileViewController.swift */; };
 		14BEA64127C6218B00192C65 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA64027C6218B00192C65 /* ShareViewController.swift */; };
 		14BEA64327C621A000192C65 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA64227C621A000192C65 /* ProfileSettingsViewController.swift */; };
-		14BEA64527C621BE00192C65 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA64427C621BE00192C65 /* ProfileView.swift */; };
 		14BEA64927C6224400192C65 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA64827C6224400192C65 /* FavoriteViewController.swift */; };
 		14BEA64B27C6226B00192C65 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA64A27C6226B00192C65 /* SettingsViewController.swift */; };
 		14BEA64D27C6227D00192C65 /* AddNewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA64C27C6227D00192C65 /* AddNewProfileViewController.swift */; };
+		14C0A87B27E86A470090FFCF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0A87A27E86A470090FFCF /* Extensions.swift */; };
+		14C0A87D27E86DAF0090FFCF /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0A87C27E86DAF0090FFCF /* AppConstants.swift */; };
+		14C0A87F27E878540090FFCF /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0A87E27E878540090FFCF /* ProfileHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +38,12 @@
 		14BEA63E27C6217600192C65 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		14BEA64027C6218B00192C65 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		14BEA64227C621A000192C65 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
-		14BEA64427C621BE00192C65 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		14BEA64827C6224400192C65 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		14BEA64A27C6226B00192C65 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		14BEA64C27C6227D00192C65 /* AddNewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProfileViewController.swift; sourceTree = "<group>"; };
+		14C0A87A27E86A470090FFCF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		14C0A87C27E86DAF0090FFCF /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		14C0A87E27E878540090FFCF /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 				14BEA64727C6221C00192C65 /* Settings */,
 				14BEA62A27C61F8500192C65 /* Assets.xcassets */,
 				14BEA62F27C61F8500192C65 /* Info.plist */,
+				14C0A87927E869970090FFCF /* AuxiliaryElements */,
 			);
 			path = First_project;
 			sourceTree = "<group>";
@@ -109,7 +114,7 @@
 				14BEA63E27C6217600192C65 /* ProfileViewController.swift */,
 				14BEA64027C6218B00192C65 /* ShareViewController.swift */,
 				14BEA64227C621A000192C65 /* ProfileSettingsViewController.swift */,
-				14BEA64427C621BE00192C65 /* ProfileView.swift */,
+				14C0A87E27E878540090FFCF /* ProfileHeaderView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -129,6 +134,15 @@
 				14BEA64C27C6227D00192C65 /* AddNewProfileViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		14C0A87927E869970090FFCF /* AuxiliaryElements */ = {
+			isa = PBXGroup;
+			children = (
+				14C0A87A27E86A470090FFCF /* Extensions.swift */,
+				14C0A87C27E86DAF0090FFCF /* AppConstants.swift */,
+			);
+			path = AuxiliaryElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,9 +217,10 @@
 				14BEA64927C6224400192C65 /* FavoriteViewController.swift in Sources */,
 				14BEA62627C61F8400192C65 /* TabBarController.swift in Sources */,
 				14BEA64327C621A000192C65 /* ProfileSettingsViewController.swift in Sources */,
-				14BEA64527C621BE00192C65 /* ProfileView.swift in Sources */,
+				14C0A87D27E86DAF0090FFCF /* AppConstants.swift in Sources */,
 				14BEA63727C620A800192C65 /* FViewController.swift in Sources */,
 				14BEA62227C61F8400192C65 /* AppDelegate.swift in Sources */,
+				14C0A87F27E878540090FFCF /* ProfileHeaderView.swift in Sources */,
 				14BEA62427C61F8400192C65 /* SceneDelegate.swift in Sources */,
 				14BEA64D27C6227D00192C65 /* AddNewProfileViewController.swift in Sources */,
 				14BEA63F27C6217600192C65 /* ProfileViewController.swift in Sources */,
@@ -213,6 +228,7 @@
 				14BEA64127C6218B00192C65 /* ShareViewController.swift in Sources */,
 				14BEA63927C620C400192C65 /* NewPostViewController.swift in Sources */,
 				14BEA64B27C6226B00192C65 /* SettingsViewController.swift in Sources */,
+				14C0A87B27E86A470090FFCF /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

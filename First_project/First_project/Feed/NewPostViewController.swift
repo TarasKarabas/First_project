@@ -13,7 +13,6 @@ class NewPostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNPViewController()
-        
     }
     
     func configureNPViewController() {
@@ -23,9 +22,9 @@ class NewPostViewController: UIViewController {
         button.frame = CGRect(x: 90, y: 680, width: 200, height: 52)
         button.layer.cornerRadius = 14
         button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 10, height: 10)
+        button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowOpacity = 0.8
-        button.layer.shadowRadius = 10
+        button.layer.shadowRadius = 4
         button.backgroundColor = .white
         button.setTitle("Create New Post", for: .normal)
         button.setTitleColor(.black, for: .normal)
@@ -37,7 +36,6 @@ class NewPostViewController: UIViewController {
         
         self.navigationItem.rightBarButtonItem?.tintColor = .black
         self.navigationItem.leftBarButtonItem?.tintColor = .black
-        
     }
     // +allert
     @objc private func didTapButton() {

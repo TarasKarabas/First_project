@@ -27,15 +27,18 @@ class SViewController: UIViewController {
         
         view.backgroundColor = .systemGroupedBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        [areaView].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview($0)
+        }
         
-        view.addSubview(areaView)
+        NSLayoutConstraint.activate([
+            areaView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            areaView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            areaView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            areaView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -16)
+        ])
         
-        areaView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        areaView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        areaView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        areaView
-            .rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
- 
         searchBar.sizeToFit()
         searchBar.delegate = self
         showSearchBarButton(show: true)
@@ -70,9 +73,9 @@ class SViewController: UIViewController {
     }
 }
 
-extension SViewController: UISearchBarDelegate {
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        search(shouldShow: false)
-    }
-}
+//extension SViewController: UISearchBarDelegate {
+//    
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        search(shouldShow: false)
+//    }
+//}

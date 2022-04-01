@@ -27,18 +27,17 @@ class FavoriteViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Favorite"
         
-        view.addSubview(areaView)
+        [areaView].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview($0)
+        }
         
-        areaView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        areaView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        areaView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        areaView
-            .rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
-        
-        //        let widht:CGFloat = 60
-        //
-        //        areaView.widthAnchor.constraint(equalToConstant: widht).isActive = true
-        //        areaView.heightAnchor.constraint(equalToConstant: widht).isActive = true
+        NSLayoutConstraint.activate([
+            areaView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            areaView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            areaView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            areaView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -16)
+        ])
     }
     
     override func viewWillAppear(_ animated: Bool) {

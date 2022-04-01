@@ -40,17 +40,6 @@ class SettingsViewController: UIViewController {
             areaView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -16)
         ])
         
-//        areaView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-//        areaView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-//        areaView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16).isActive = true
-//        areaView
-//            .rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -16).isActive = true
-//
-//                let widht:CGFloat = 200
-//
-//                areaView.widthAnchor.constraint(equalToConstant: widht).isActive = true
-//                areaView.heightAnchor.constraint(equalToConstant: widht).isActive = true
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.badge.plus"), style: .plain, target: self, action: #selector(addNewProfile))
         self.navigationItem.rightBarButtonItem?.tintColor = .black
     }
