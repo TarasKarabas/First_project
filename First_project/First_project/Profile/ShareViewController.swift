@@ -16,9 +16,9 @@ class ShareViewController: UIViewController {
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowOpacity = 0.8
         button.layer.shadowRadius = 4
-        button.backgroundColor = .blue
+        button.backgroundColor = AppConstants.buttonblue
         button.setTitle("Send", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(sendTo), for: .touchUpInside )
         return button
     }()
@@ -34,9 +34,18 @@ class ShareViewController: UIViewController {
         self.preferredContentSize = CGSize(width: 100, height: 100)
         
         view.addSubview(button)
-        button.frame = CGRect(x: 16, y: 100,
-                              width: 355,
-                              height: 50)
+        
+        [button].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview($0)
+        }
+        
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: view.topAnchor, constant: AppConstants.leftAnchorSize),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AppConstants.leftAnchorSize),
+            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: AppConstants.rightAnchorSize),
+            button.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
     
     @objc private func sendTo() {
