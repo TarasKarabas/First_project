@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SViewController: UIViewController {
+class SearchViewController: UIViewController {
     private var searchBar = UISearchBar()
     
     let areaView: UIView = {
@@ -73,3 +73,9 @@ class SViewController: UIViewController {
     }
 }
 
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        search(shouldShow: false)
+    }
+}

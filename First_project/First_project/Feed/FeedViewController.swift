@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FViewController: UIViewController {
+class FeedViewController: UIViewController {
     // MARK: - create work view
     private let areaView: UIView = {
         let view = UIView()

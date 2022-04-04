@@ -11,9 +11,9 @@
 		14BEA62427C61F8400192C65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA62327C61F8400192C65 /* SceneDelegate.swift */; };
 		14BEA62627C61F8400192C65 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA62527C61F8400192C65 /* TabBarController.swift */; };
 		14BEA62B27C61F8500192C65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14BEA62A27C61F8500192C65 /* Assets.xcassets */; };
-		14BEA63727C620A800192C65 /* FViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA63627C620A800192C65 /* FViewController.swift */; };
+		14BEA63727C620A800192C65 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA63627C620A800192C65 /* FeedViewController.swift */; };
 		14BEA63927C620C400192C65 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA63827C620C400192C65 /* NewPostViewController.swift */; };
-		14BEA63C27C6213D00192C65 /* SViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA63B27C6213D00192C65 /* SViewController.swift */; };
+		14BEA63C27C6213D00192C65 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA63B27C6213D00192C65 /* SearchViewController.swift */; };
 		14BEA63F27C6217600192C65 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA63E27C6217600192C65 /* ProfileViewController.swift */; };
 		14BEA64127C6218B00192C65 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA64027C6218B00192C65 /* ShareViewController.swift */; };
 		14BEA64327C621A000192C65 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA64227C621A000192C65 /* ProfileSettingsViewController.swift */; };
@@ -32,9 +32,9 @@
 		14BEA62527C61F8400192C65 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		14BEA62A27C61F8500192C65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14BEA62F27C61F8500192C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14BEA63627C620A800192C65 /* FViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewController.swift; sourceTree = "<group>"; };
+		14BEA63627C620A800192C65 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		14BEA63827C620C400192C65 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
-		14BEA63B27C6213D00192C65 /* SViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SViewController.swift; sourceTree = "<group>"; };
+		14BEA63B27C6213D00192C65 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		14BEA63E27C6217600192C65 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		14BEA64027C6218B00192C65 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		14BEA64227C621A000192C65 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		14BEA63527C6206D00192C65 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				14BEA63627C620A800192C65 /* FViewController.swift */,
+				14BEA63627C620A800192C65 /* FeedViewController.swift */,
 				14BEA63827C620C400192C65 /* NewPostViewController.swift */,
 			);
 			path = Feed;
@@ -103,7 +103,7 @@
 		14BEA63A27C6210E00192C65 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				14BEA63B27C6213D00192C65 /* SViewController.swift */,
+				14BEA63B27C6213D00192C65 /* SearchViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -218,13 +218,13 @@
 				14BEA62627C61F8400192C65 /* TabBarController.swift in Sources */,
 				14BEA64327C621A000192C65 /* ProfileSettingsViewController.swift in Sources */,
 				14C0A87D27E86DAF0090FFCF /* AppConstants.swift in Sources */,
-				14BEA63727C620A800192C65 /* FViewController.swift in Sources */,
+				14BEA63727C620A800192C65 /* FeedViewController.swift in Sources */,
 				14BEA62227C61F8400192C65 /* AppDelegate.swift in Sources */,
 				14C0A87F27E878540090FFCF /* ProfileHeaderView.swift in Sources */,
 				14BEA62427C61F8400192C65 /* SceneDelegate.swift in Sources */,
 				14BEA64D27C6227D00192C65 /* AddNewProfileViewController.swift in Sources */,
 				14BEA63F27C6217600192C65 /* ProfileViewController.swift in Sources */,
-				14BEA63C27C6213D00192C65 /* SViewController.swift in Sources */,
+				14BEA63C27C6213D00192C65 /* SearchViewController.swift in Sources */,
 				14BEA64127C6218B00192C65 /* ShareViewController.swift in Sources */,
 				14BEA63927C620C400192C65 /* NewPostViewController.swift in Sources */,
 				14BEA64B27C6226B00192C65 /* SettingsViewController.swift in Sources */,

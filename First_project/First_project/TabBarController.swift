@@ -16,8 +16,8 @@ class TabBarController: UITabBarController {
     // MARK: - add viewControllers to each tabBar sections
     func setupTabBar() {
         
-        let feedVC = FeedUINavigationController(rootViewController: FViewController())
-        let saerchVC = SearchUINavigationController(rootViewController: SViewController())
+        let feedVC = FeedUINavigationController(rootViewController: FeedViewController())
+        let saerchVC = SearchUINavigationController(rootViewController: SearchViewController())
         let profileVC = ProfileUINavigationController(rootViewController: ProfileViewController())
         let favoriteVC = FavoriteUINavigationController(rootViewController: FavoriteViewController())
         let settingsVC = SettingsUINavigationController(rootViewController: SettingsViewController())

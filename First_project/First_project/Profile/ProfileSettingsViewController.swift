@@ -17,5 +17,4 @@ class ProfileSettingsViewController: UIViewController {
         navigationItem.title = "Tune-up"
         
     }
-    
 }

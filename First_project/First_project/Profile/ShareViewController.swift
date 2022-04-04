@@ -58,33 +58,13 @@ class ShareViewController: UIViewController {
         self.view.roundCorners(corners: [.topLeft, .topRight], radius: 10.0)
         super.updateViewConstraints()
     }
-    
 }
 
-//extension UIView {
-//    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-//        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-//        let mask = CAShapeLayer()
-//        mask.path = path.cgPath
-//        layer.mask = mask
-//    }
-//}
-
-
-//задать размер всплывающей вьюшки/модальной и экстэншен для скругления краев
-//override func updateViewConstraints() {
-//        self.view.frame.size.height = UIScreen.main.bounds.height - 150
-//        self.view.frame.origin.y =  150
-//        self.view.roundCorners(corners: [.topLeft, .topRight], radius: 10.0)
-//        super.updateViewConstraints()
-// }
-//
-// extension UIView {
-//   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-//        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-//        let mask = CAShapeLayer()
-//        mask.path = path.cgPath
-//        layer.mask = mask
-//    }
-// }
-
+extension UIView {
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+    }
+}

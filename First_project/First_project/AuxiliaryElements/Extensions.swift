@@ -8,20 +8,16 @@
 import Foundation
 import UIKit
 
-extension SViewController: UISearchBarDelegate {
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        search(shouldShow: false)
+extension UITextField {
+        func setLeftPaddingPoints() {
+            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.size.height))
+            self.leftView = paddingView
+            self.leftViewMode = .always
+        }
+        func setRightPaddingPoints() {
+            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.size.height))
+            self.rightView = paddingView
+            self.rightViewMode = .always
+        }
     }
-}
-    
-extension UIView {
-    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        layer.mask = mask
-    }
-}
-
 

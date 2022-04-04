@@ -114,7 +114,7 @@ class ProfileHeaderView: UIView {
     }
     
     @objc private func buttonPressed() {
-        
+        print(status.text ?? "Add status!")
     }
     
     @objc private func buttonPush() {
