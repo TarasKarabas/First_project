@@ -15,5 +15,6 @@ class ProfileSettingsViewController: UIViewController {
         view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.title = "Tune-up"
+        
     }
 }
