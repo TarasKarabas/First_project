@@ -26,12 +26,18 @@ class ProfileHeaderView: UIView {
         return nickName
     }()
     
-    private var status: UITextField = {
-        let curentStatus = UITextField()
-        curentStatus.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        curentStatus.autocorrectionType = .yes
-        curentStatus.placeholder = "Add your status..."
-        return curentStatus
+    private var statusInputWindow: UITextField = {
+        let sText = UITextField()
+        sText.setLeftPaddingPoints()
+        sText.setRightPaddingPoints()
+        sText.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        sText.layer.cornerRadius = 14
+        sText.layer.borderWidth = 1.0
+        sText.layer.borderColor = UIColor.darkGray.cgColor
+        sText.autocorrectionType = .yes
+        sText.backgroundColor = .white
+        sText.placeholder = "Add your status..."
+        return sText
     }()
     
     private var button: UIButton = {
@@ -42,7 +48,7 @@ class ProfileHeaderView: UIView {
         button.layer.shadowOpacity = 0.7
         button.layer.shadowRadius = 4
         button.backgroundColor = AppConstants.buttonblue
-        button.setTitle("Add new avatar", for: .normal)
+        button.setTitle("Set status", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside )
         return button
@@ -59,6 +65,15 @@ class ProfileHeaderView: UIView {
         return button
     }()
     
+    private var curentStatus: UILabel = {
+        var iW = UILabel()
+        iW.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        iW.layer.cornerRadius = 14
+        iW.text = "...waiting for new status..."
+        iW.textColor = .lightGray
+        return iW
+    }()
+    
     override init(frame: CGRect) {
         super .init(frame: frame)
         setupView()
@@ -71,9 +86,9 @@ class ProfileHeaderView: UIView {
     
     private func setupView() {
         
-        backgroundColor = .lightGray
+        backgroundColor = .systemGray4
         
-        [profilePicture, nickName, status, button, addPhotoButton].forEach {
+        [profilePicture, nickName, statusInputWindow, button, addPhotoButton, curentStatus].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview($0)
         }
@@ -88,11 +103,12 @@ class ProfileHeaderView: UIView {
             nickName.leadingAnchor.constraint(equalTo: profilePicture.trailingAnchor, constant: AppConstants.leftAnchorSize),
             nickName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize),
             
-            status.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -34),
-            status.leadingAnchor.constraint(equalTo: profilePicture.trailingAnchor, constant: AppConstants.leftAnchorSize),
-            status.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize),
+            statusInputWindow.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -16),
+            statusInputWindow.heightAnchor.constraint(equalToConstant: 50),
+            statusInputWindow.leadingAnchor.constraint(equalTo: profilePicture.trailingAnchor, constant: AppConstants.leftAnchorSize),
+            statusInputWindow.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize),
             
-            button.topAnchor.constraint(equalTo: profilePicture.bottomAnchor, constant: AppConstants.leftAnchorSize),
+            button.topAnchor.constraint(equalTo: profilePicture.bottomAnchor, constant: 57),
             button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: AppConstants.leftAnchorSize),
             button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize),
             button.heightAnchor.constraint(equalToConstant: 50),
@@ -102,7 +118,11 @@ class ProfileHeaderView: UIView {
             addPhotoButton.bottomAnchor.constraint(equalTo: profilePicture.bottomAnchor, constant: -5),
             addPhotoButton.trailingAnchor.constraint(equalTo: profilePicture.trailingAnchor, constant: -5),
             addPhotoButton.heightAnchor.constraint(equalToConstant: 26),
-            addPhotoButton.widthAnchor.constraint(equalToConstant: 26)
+            addPhotoButton.widthAnchor.constraint(equalToConstant: 26),
+            
+            curentStatus.bottomAnchor.constraint(equalTo: statusInputWindow.topAnchor, constant: -5),
+            curentStatus.leadingAnchor.constraint(equalTo: profilePicture.trailingAnchor, constant: AppConstants.leftAnchorSize),
+            curentStatus.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize)
         ])
         
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width:self.frame.size.width , height: 50))
@@ -110,18 +130,20 @@ class ProfileHeaderView: UIView {
         let doneButtom = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
         toolBar.items = [flexibleSpace, doneButtom]
         toolBar.sizeToFit()
-        status.inputAccessoryView = toolBar
+        statusInputWindow.inputAccessoryView = toolBar
     }
     
     @objc private func buttonPressed() {
-        print(status.text ?? "Add status!")
+        curentStatus.textColor = .black
+        curentStatus.text = statusInputWindow.text
+        statusInputWindow.text = nil
     }
-    
+
     @objc private func buttonPush() {
         
     }
     
     @objc private func didTapDone() {
-        status.resignFirstResponder()
+        statusInputWindow.resignFirstResponder()
     }
 }
