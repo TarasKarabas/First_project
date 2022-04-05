@@ -16,48 +16,22 @@ class FeedViewController: UIViewController {
     }()
     
     private let stackView: UIStackView = {
-        let sW = UIStackView()
-        sW.backgroundColor = AppConstants.buttonblue
-        sW.layer.borderWidth = 1.0
-        sW.layer.borderColor = UIColor.black.cgColor
-        sW.layer.cornerRadius = 14
-        sW.layer.shadowColor = UIColor.darkGray.cgColor
-        sW.layer.shadowOpacity = 0.9
-        sW.layer.shadowRadius = 14
-        sW.layer.shadowOffset = CGSize(width: 4, height: 4)
-        return sW
+        let sV = UIStackView()
+        sV.layer.cornerRadius = 14
+        sV.layer.shadowColor = UIColor.darkGray.cgColor
+        sV.layer.shadowOpacity = 0.9
+        sV.layer.shadowRadius = 14
+        sV.layer.shadowOffset = CGSize(width: 4, height: 4)
+        sV.alignment = .fill
+        sV.axis = .vertical
+        sV.distribution = .fillEqually
+        sV.spacing = 0.0
+        return sV
     }()
-    
-    private let button1: UIButton = {
-        let button = UIButton(type: .system)
-        //        let shadow = EdgeShadowLayer(forView: button, edge: .Top)
-        //        button.layer.addSublayer(shadow)
-        button.layer.cornerRadius = 14
-        button.layer.borderWidth = 1.0
-        button.layer.borderColor = UIColor.black.cgColor
-        button.backgroundColor = AppConstants.buttonblue
-        button.setTitle("ONE", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.addTarget(self, action: #selector(presentModality), for: .touchUpInside )
-        return button
-    } ()
-    
-    private let button2: UIButton = {
-        let button = UIButton(type: .system)
-        button.layer.cornerRadius = 14
-        button.layer.borderWidth = 1.0
-        button.layer.borderColor = UIColor.black.cgColor
-        button.backgroundColor = AppConstants.buttonblue
-        button.setTitle("TWO", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.addTarget(self, action: #selector(presentModality), for: .touchUpInside )
-        return button
-    } ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureFeedViewController()
-        
     }
     
     func configureFeedViewController() {
@@ -65,10 +39,15 @@ class FeedViewController: UIViewController {
         view.backgroundColor = .systemGroupedBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        let button1 = createButton("ONE")
+        button1.addTarget(self, action: #selector(presentModality), for: .touchUpInside)
+        let button2 = createButton("TWO")
+        button2.addTarget(self, action: #selector(presentModality), for: .touchUpInside)
+        
         stackView.addArrangedSubview(button1)
         stackView.addArrangedSubview(button2)
         
-        [areaView, stackView, button1, button2].forEach {
+        [areaView, stackView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
@@ -82,25 +61,24 @@ class FeedViewController: UIViewController {
             stackView.heightAnchor.constraint(equalToConstant: 200),
             stackView.widthAnchor.constraint(equalToConstant: 100),
             stackView.centerXAnchor.constraint(equalTo: areaView.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: areaView.centerYAnchor, constant: -10),
-            
-            button1.heightAnchor.constraint(equalToConstant: 70),
-            button1.widthAnchor.constraint(equalToConstant: 50),
-            button1.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
-            button1.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 20),
-            
-            button2.heightAnchor.constraint(equalToConstant: 70),
-            button2.widthAnchor.constraint(equalToConstant: 50),
-            button2.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
-            button2.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: -20)
-            
+            stackView.centerYAnchor.constraint(equalTo: areaView.centerYAnchor, constant: -10)
         ])
         
         //MARK: - add newPostButton to right top
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .plain, target: self, action: #selector(presentModality))
-//        self.navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .plain, target: self, action: #selector(presentModality))
+        self.navigationItem.rightBarButtonItem?.tintColor = .black
     }
     
+    private func createButton(_ setTitle: String) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(setTitle, for: .normal)
+        button.layer.cornerRadius = 14
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = AppConstants.buttonblue
+        button.setTitleColor(.white, for: .normal)
+        return button
+    }
     //MARK: - add func with configuration value when comeback to feedView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
