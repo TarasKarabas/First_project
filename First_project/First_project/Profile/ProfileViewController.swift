@@ -50,11 +50,6 @@ class ProfileViewController: UIViewController {
         view.addSubview(profileHeader)
     }
     
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        profileHeader.frame = CGRect(x: 0, y: 143, width: view.bounds.width, height:  300)
-//    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = false
