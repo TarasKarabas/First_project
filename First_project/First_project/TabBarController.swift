@@ -16,66 +16,25 @@ class TabBarController: UITabBarController {
     // MARK: - add viewControllers to each tabBar sections
     func setupTabBar() {
         
-        let feedVC = FeedUINavigationController(rootViewController: FeedViewController())
-        let saerchVC = SearchUINavigationController(rootViewController: SearchViewController())
-        let profileVC = ProfileUINavigationController(rootViewController: ProfileViewController())
-        let favoriteVC = FavoriteUINavigationController(rootViewController: FavoriteViewController())
-        let settingsVC = SettingsUINavigationController(rootViewController: SettingsViewController())
-        
-        viewControllers = [feedVC, saerchVC, profileVC, favoriteVC, settingsVC]
-        
-        feedVC.title = "Feed"
-        saerchVC.title = "Search"
-        profileVC.title = "Profile"
-        favoriteVC.title = "Favorite"
-        settingsVC.title = "Settings"
-        
+        viewControllers = [
+            createController(for: FeedViewController(), title: "Feed", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill")),
+            createController(for: SearchViewController(), title: "Search", image: UIImage(systemName: "magnifyingglass.circle"), selectedImage: UIImage(systemName: "magnifyingglass.circle.fill")),
+            createController(for: ProfileViewController(), title: "Profile", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill")),
+            createController(for: FavoriteViewController(), title: "Favorite", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill")),
+            createController(for: SettingsViewController(), title: "Setings", image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape.fill"))
+        ]
         self.tabBar.tintColor = UIColor.black
     }
-}
-// MARK: - create viewControllers for each tabBar menu & add icons/after tap icons
-class FeedUINavigationController: UINavigationController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private func createController(for rootViewController: UIViewController,
+                                  title: String,
+                                  image: UIImage?,
+                                  selectedImage: UIImage?) -> UIViewController {
+        let vC = UINavigationController(rootViewController: rootViewController)
+        vC.tabBarItem.title = title
+        vC.tabBarItem.image = image
+        vC.tabBarItem.selectedImage = selectedImage
         
-        tabBarItem.image = UIImage(systemName: "house")
-        tabBarItem.selectedImage = UIImage(systemName: "house.fill")
-    }
-}
-class SearchUINavigationController: UINavigationController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tabBarItem.image = UIImage(systemName: "magnifyingglass.circle")
-        tabBarItem.selectedImage = UIImage(systemName: "magnifyingglass.circle.fill")
-    }
-}
-class ProfileUINavigationController: UINavigationController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tabBarItem.image = UIImage(systemName: "person")
-        tabBarItem.selectedImage = UIImage(systemName: "person.fill")
-    }
-}
-class FavoriteUINavigationController: UINavigationController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tabBarItem.image = UIImage(systemName: "star")
-        tabBarItem.selectedImage = UIImage(systemName: "star.fill")
-    }
-}
-class SettingsUINavigationController: UINavigationController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tabBarItem.image = UIImage(systemName: "gearshape")
-        tabBarItem.selectedImage = UIImage(systemName: "gearshape.fill")
+        return vC
     }
 }
