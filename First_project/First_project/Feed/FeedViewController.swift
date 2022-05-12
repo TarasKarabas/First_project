@@ -11,7 +11,7 @@ class FeedViewController: UIViewController {
     
     private let areaView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .yellow
         return view
     }()
     
@@ -40,9 +40,9 @@ class FeedViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let button1 = createButton("ONE")
-        button1.addTarget(self, action: #selector(presentModality), for: .touchUpInside)
+        button1.addTarget(self, action: #selector(loginPassword), for: .touchUpInside)
         let button2 = createButton("TWO")
-        button2.addTarget(self, action: #selector(presentModality), for: .touchUpInside)
+        button2.addTarget(self, action: #selector(loginPassword), for: .touchUpInside)
         
         stackView.addArrangedSubview(button1)
         stackView.addArrangedSubview(button2)
@@ -66,7 +66,7 @@ class FeedViewController: UIViewController {
         
         //MARK: - add newPostButton to right top
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .plain, target: self, action: #selector(presentModality))
-        self.navigationItem.rightBarButtonItem?.tintColor = .black
+        self.navigationItem.rightBarButtonItem?.tintColor = AppConstants.buttonblue
     }
     
     private func createButton(_ setTitle: String) -> UIButton {
@@ -91,5 +91,8 @@ class FeedViewController: UIViewController {
         let postView = UINavigationController(rootViewController: view)
         present(postView, animated: true, completion: nil)
     }
-    
+    @objc private func loginPassword() {
+        let vC = LoginViewController()
+        self.navigationController?.pushViewController(vC, animated: true)
+    }
 }

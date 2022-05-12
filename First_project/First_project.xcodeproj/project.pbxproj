@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142914712820FED5003E28DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142914702820FED5003E28DC /* LoginViewController.swift */; };
 		14BEA62227C61F8400192C65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA62127C61F8400192C65 /* AppDelegate.swift */; };
 		14BEA62427C61F8400192C65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA62327C61F8400192C65 /* SceneDelegate.swift */; };
 		14BEA62627C61F8400192C65 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA62527C61F8400192C65 /* TabBarController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		142914702820FED5003E28DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		14BEA61E27C61F8400192C65 /* First_project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = First_project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14BEA62127C61F8400192C65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14BEA62327C61F8400192C65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		14BEA63D27C6215200192C65 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				142914702820FED5003E28DC /* LoginViewController.swift */,
 				14BEA63E27C6217600192C65 /* ProfileViewController.swift */,
 				14BEA64027C6218B00192C65 /* ShareViewController.swift */,
 				14BEA64227C621A000192C65 /* ProfileSettingsViewController.swift */,
@@ -226,6 +229,7 @@
 				14BEA63F27C6217600192C65 /* ProfileViewController.swift in Sources */,
 				14BEA63C27C6213D00192C65 /* SearchViewController.swift in Sources */,
 				14BEA64127C6218B00192C65 /* ShareViewController.swift in Sources */,
+				142914712820FED5003E28DC /* LoginViewController.swift in Sources */,
 				14BEA63927C620C400192C65 /* NewPostViewController.swift in Sources */,
 				14BEA64B27C6226B00192C65 /* SettingsViewController.swift in Sources */,
 				14C0A87B27E86A470090FFCF /* Extensions.swift in Sources */,

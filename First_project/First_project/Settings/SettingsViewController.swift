@@ -26,7 +26,7 @@ class SettingsViewController: UIViewController {
         view.backgroundColor = .systemGroupedBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Settings"
-        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.tintColor = AppConstants.buttonblue
         
         [areaView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +41,7 @@ class SettingsViewController: UIViewController {
         ])
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.badge.plus"), style: .plain, target: self, action: #selector(addNewProfile))
-        self.navigationItem.rightBarButtonItem?.tintColor = .black
+        self.navigationItem.rightBarButtonItem?.tintColor = AppConstants.buttonblue
     }
     
     override func viewWillAppear(_ animated: Bool) {

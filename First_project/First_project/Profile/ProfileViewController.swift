@@ -9,13 +9,6 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-//   private let areaView: UIView = {
-//        let view = UIView()
-//       view.backgroundColor = .lightGray
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        return view
-//    }()
-//
     private let profileHeader = ProfileHeaderView()
     
     override func viewDidLoad() {
@@ -25,7 +18,6 @@ class ProfileViewController: UIViewController {
     }
     
     func configureProfileViewController() {
-        
      
         view.backgroundColor = .systemGroupedBackground
 
@@ -40,10 +32,10 @@ class ProfileViewController: UIViewController {
         ])
 
         let shareProfileButton = UIBarButtonItem(image: UIImage(systemName: "text.justify"),  style: .plain, target: self, action: #selector(settingsProfile))
-        shareProfileButton.tintColor = .black
+        shareProfileButton.tintColor = AppConstants.buttonblue
         
         let settingsProfileButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"),  style: .plain, target: self, action: #selector(shareProfile))
-        settingsProfileButton.tintColor = .black
+        settingsProfileButton.tintColor = AppConstants.buttonblue
         
         navigationItem.rightBarButtonItems = [shareProfileButton, settingsProfileButton]
         

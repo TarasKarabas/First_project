@@ -9,7 +9,7 @@ import UIKit
 
 class ShareViewController: UIViewController {
 
-    private var button: UIButton = {
+    lazy var button: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 14
         button.layer.shadowColor = UIColor.black.cgColor
@@ -19,7 +19,7 @@ class ShareViewController: UIViewController {
         button.backgroundColor = AppConstants.buttonblue
         button.setTitle("Send", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.addTarget(self, action: #selector(sendTo), for: .touchUpInside )
+        button.addTarget( self, action: #selector(sendTo), for: .touchUpInside )
         return button
     }()
     
