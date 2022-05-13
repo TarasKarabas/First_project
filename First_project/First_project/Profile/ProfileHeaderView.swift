@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
-    private var profilePicture: UIImageView = {
+    private var profileImageView: UIImageView = {
         var image = UIImage(named: "avatar")
         var profilePicture = UIImageView(image: image)
         profilePicture.layer.cornerRadius = AppConstants.avatarSize / 2
@@ -26,7 +26,7 @@ class ProfileHeaderView: UIView {
         return nickName
     }()
     
-    private var statusInputWindow: UITextField = {
+    private var statusTextField: UITextField = {
         let sText = UITextField()
         sText.setLeftPaddingPoints()
         sText.setRightPaddingPoints()
@@ -40,7 +40,7 @@ class ProfileHeaderView: UIView {
         return sText
     }()
     
-    lazy var button: UIButton = {
+    lazy var setStatusButton: UIButton = {
         let button = UIButton(type: .system)
         button.layer.cornerRadius = 14
         button.layer.shadowColor = UIColor.black.cgColor
@@ -50,7 +50,7 @@ class ProfileHeaderView: UIView {
         button.backgroundColor = AppConstants.buttonblue
         button.setTitle("Set status", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.addTarget( self, action: #selector(buttonPressed), for: .touchUpInside )
+        button.addTarget( self, action: #selector(setStatusButtonPressed), for: .touchUpInside )
         return button
     }()
     
@@ -88,39 +88,39 @@ class ProfileHeaderView: UIView {
         
         backgroundColor = .systemGray4
         
-        [profilePicture, nickName, statusInputWindow, button, addPhotoButton, curentStatus].forEach {
+        [profileImageView, nickName, statusTextField, setStatusButton, addPhotoButton, curentStatus].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview($0)
         }
         
         NSLayoutConstraint.activate([
-            profilePicture.topAnchor.constraint(equalTo: self.topAnchor, constant: AppConstants.leftAnchorSize),
-            profilePicture.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: AppConstants.leftAnchorSize),
-            profilePicture.widthAnchor.constraint(equalToConstant: AppConstants.avatarSize),
-            profilePicture.heightAnchor.constraint(equalToConstant: AppConstants.avatarSize),
+            profileImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: AppConstants.leftAnchorSize),
+            profileImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: AppConstants.leftAnchorSize),
+            profileImageView.widthAnchor.constraint(equalToConstant: AppConstants.avatarSize),
+            profileImageView.heightAnchor.constraint(equalToConstant: AppConstants.avatarSize),
             
             nickName.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
-            nickName.leadingAnchor.constraint(equalTo: profilePicture.trailingAnchor, constant: AppConstants.leftAnchorSize),
+            nickName.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: AppConstants.leftAnchorSize),
             nickName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize),
             
-            statusInputWindow.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -16),
-            statusInputWindow.heightAnchor.constraint(equalToConstant: 50),
-            statusInputWindow.leadingAnchor.constraint(equalTo: profilePicture.trailingAnchor, constant: AppConstants.leftAnchorSize),
-            statusInputWindow.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize),
+            statusTextField.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -16),
+            statusTextField.heightAnchor.constraint(equalToConstant: 50),
+            statusTextField.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: AppConstants.leftAnchorSize),
+            statusTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize),
             
-            button.topAnchor.constraint(equalTo: profilePicture.bottomAnchor, constant: 57),
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: AppConstants.leftAnchorSize),
-            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize),
-            button.heightAnchor.constraint(equalToConstant: 50),
-            button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: AppConstants.rightAnchorSize),
+            setStatusButton.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 57),
+            setStatusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: AppConstants.leftAnchorSize),
+            setStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize),
+            setStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            setStatusButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: AppConstants.rightAnchorSize),
             
-            addPhotoButton.bottomAnchor.constraint(equalTo: profilePicture.bottomAnchor, constant: -5),
-            addPhotoButton.trailingAnchor.constraint(equalTo: profilePicture.trailingAnchor, constant: -5),
+            addPhotoButton.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: -5),
+            addPhotoButton.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -5),
             addPhotoButton.heightAnchor.constraint(equalToConstant: 26),
             addPhotoButton.widthAnchor.constraint(equalToConstant: 26),
             
-            curentStatus.bottomAnchor.constraint(equalTo: statusInputWindow.topAnchor, constant: -5),
-            curentStatus.leadingAnchor.constraint(equalTo: profilePicture.trailingAnchor, constant: AppConstants.leftAnchorSize),
+            curentStatus.bottomAnchor.constraint(equalTo: statusTextField.topAnchor, constant: -5),
+            curentStatus.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: AppConstants.leftAnchorSize),
             curentStatus.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize)
         ])
         
@@ -129,13 +129,13 @@ class ProfileHeaderView: UIView {
         let doneButtom = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
         toolBar.items = [flexibleSpace, doneButtom]
         toolBar.sizeToFit()
-        statusInputWindow.inputAccessoryView = toolBar
+        statusTextField.inputAccessoryView = toolBar
     }
     
-    @objc private func buttonPressed() {
+    @objc private func setStatusButtonPressed() {
         curentStatus.textColor = .black
-        curentStatus.text = statusInputWindow.text
-        statusInputWindow.text = nil
+        curentStatus.text = statusTextField.text
+        statusTextField.text = nil
     }
 
     @objc private func buttonPush() {
@@ -143,6 +143,6 @@ class ProfileHeaderView: UIView {
     }
     
     @objc private func didTapDone() {
-        statusInputWindow.resignFirstResponder()
+        statusTextField.resignFirstResponder()
     }
 }

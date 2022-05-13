@@ -13,7 +13,6 @@ class LoginViewController: UIViewController {
         let view = UIScrollView()
         view.backgroundColor = .white
         view.showsVerticalScrollIndicator = true
-        view.delegate = self
         return view
     }()
     
@@ -28,46 +27,9 @@ class LoginViewController: UIViewController {
         return logoPicture
     }()
     
-    lazy var profileLogin: UITextField = {
-        let login = UITextField()
-        login.setLeftPaddingPoints()
-        login.setRightPaddingPoints()
-        login.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        login.autocapitalizationType = .none
-        login.returnKeyType = .done
-        login.delegate = self
-        login.layer.cornerRadius = 10
-        login.layer.borderWidth = 0.5
-        login.layer.borderColor = UIColor.lightGray.cgColor
-        login.autocorrectionType = .yes
-        login.textColor = .black
-        login.autocapitalizationType = .none
-        login.backgroundColor = .systemGray6
-        login.placeholder = "Email or phone nomber"
-        return login
-    }()
+    lazy var profileLogin = makeTextField("Email or phone number", securityText: false)
+    lazy var profilePassword = makeTextField("Password", securityText: true)
     
-    lazy var profilePassword
-    : UITextField = {
-        let password = UITextField()
-        password.setLeftPaddingPoints()
-        password.setRightPaddingPoints()
-        password.returnKeyType = .done
-        password.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        password.autocapitalizationType = .none
-        password.delegate = self
-        password.layer.cornerRadius = 10
-        password.layer.borderWidth = 0.5
-        password.layer.borderColor = UIColor.lightGray.cgColor
-        password.autocorrectionType = .yes
-        password.textColor = .black
-        password.autocapitalizationType = .none
-        password.backgroundColor = .systemGray6
-        password.isSecureTextEntry = true
-        password.rightViewMode = .unlessEditing
-        password.placeholder = "Password"
-        return password
-    }()
     
     lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
@@ -75,15 +37,13 @@ class LoginViewController: UIViewController {
         button.backgroundColor = AppConstants.buttonblue
         button.setTitle("Log in", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.addTarget(self, action: #selector(buttonChanged), for: .touchUpInside )
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside )
         return button
     }()
-    
-    var iconicClick = true
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureProfileViewController()
         
         // MARK Keyboard observers
@@ -142,17 +102,12 @@ class LoginViewController: UIViewController {
         
         profileLogin.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         profilePassword.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        
     }
     
     // MARK Keyboard observers
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK keyboard actions
@@ -171,29 +126,41 @@ class LoginViewController: UIViewController {
         scrollView.verticalScrollIndicatorInsets = .zero
     }
     
-    @objc private func buttonPressed() {
+    @objc private func buttonPressed(_ select: UIButton) {
+        
         let profileC = ProfileViewController()
         self.navigationController?.pushViewController(profileC, animated: true)
-    }
-    
-    @objc private func buttonChanged(_ select: UIButton) {
+        
         select.alpha = 0.5
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             select.alpha = 1.0
         }
     }
     
-    @IBAction func iconAction(sender: AnyObject) {
-        if(iconicClick == true) {
-            profilePassword.isSecureTextEntry = false
-        } else {
-            profilePassword.isSecureTextEntry = true
-        }
-        iconicClick = !iconicClick
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+        print(scrollView.contentOffset.y)
     }
     
-    @objc func keybordWillChange(notification: Notification) {
-        print("0")
+    @objc func makeTextField(_ plaseHolder: String, securityText: Bool) -> UITextField {
+        let textField = UITextField()
+        textField.setLeftPaddingPoints()
+        textField.setRightPaddingPoints()
+        textField.returnKeyType = .done
+        textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        textField.autocapitalizationType = .none
+        textField.delegate = self
+        textField.layer.cornerRadius = 10
+        textField.layer.borderWidth = 0.5
+        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.autocorrectionType = .yes
+        textField.textColor = .black
+        textField.autocapitalizationType = .none
+        textField.backgroundColor = .systemGray6
+        textField.isSecureTextEntry = securityText
+        textField.rightViewMode = .unlessEditing
+        textField.placeholder = plaseHolder
+        return textField
     }
 }
 
@@ -206,13 +173,6 @@ extension LoginViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
-    }
-}
-
-extension LoginViewController: UIScrollViewDelegate {
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = false
-        print(scrollView.contentOffset.y)
     }
 }
 
