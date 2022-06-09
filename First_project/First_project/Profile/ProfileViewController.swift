@@ -9,52 +9,35 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    private let profileHeader = ProfileHeaderView()
+    private let dataSourseAdapter = StorageTableViewAdapter()
+    
+    private lazy var profileTableView: UITableView = {
+        var tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: String(describing: PostTableViewCell.identifier))
+        tableView.dataSource = dataSourseAdapter
+        tableView.delegate = dataSourseAdapter
+        
+        return tableView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureProfileViewController()
-        
     }
     
     func configureProfileViewController() {
-     
-        view.backgroundColor = .systemGroupedBackground
-
-        [profileHeader].forEach {
+        title = "Posts"
+        view.backgroundColor = .white
+        
+        [profileTableView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
         NSLayoutConstraint.activate([
-            profileHeader.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            profileHeader.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            profileHeader.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
+            profileTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            profileTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            profileTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            profileTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-
-        let shareProfileButton = UIBarButtonItem(image: UIImage(systemName: "text.justify"),  style: .plain, target: self, action: #selector(settingsProfile))
-        shareProfileButton.tintColor = AppConstants.buttonblue
-        
-        let settingsProfileButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"),  style: .plain, target: self, action: #selector(shareProfile))
-        settingsProfileButton.tintColor = AppConstants.buttonblue
-        
-        navigationItem.rightBarButtonItems = [shareProfileButton, settingsProfileButton]
-        
-        view.addSubview(profileHeader)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
-        navigationItem.title = "Profile"
-    }
-    
-    @objc func shareProfile() {
-        let vc = ShareViewController()
-        present(vc, animated: true, completion: nil)
-    }
-    
-    @objc func settingsProfile() {
-        let settingsView = ProfileSettingsViewController()
-        self.navigationController?.pushViewController(settingsView, animated: true)
     }
 }
