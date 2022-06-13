@@ -41,9 +41,9 @@ class ShareViewController: UIViewController {
         }
         
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: view.topAnchor, constant: AppConstants.leftAnchorSize),
-            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AppConstants.leftAnchorSize),
-            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: AppConstants.rightAnchorSize),
+            button.topAnchor.constraint(equalTo: view.topAnchor, constant: AppConstants.leftIndentSize),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AppConstants.leftIndentSize),
+            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: AppConstants.rightIndentSize),
             button.heightAnchor.constraint(equalToConstant: 50)
         ])
     }

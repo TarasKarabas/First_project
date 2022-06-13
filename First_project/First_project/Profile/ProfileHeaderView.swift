@@ -94,25 +94,25 @@ class ProfileHeaderView: UIView {
         }
         
         NSLayoutConstraint.activate([
-            profileImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: AppConstants.leftAnchorSize),
-            profileImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: AppConstants.leftAnchorSize),
+            profileImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: AppConstants.leftIndentSize),
+            profileImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: AppConstants.leftIndentSize),
             profileImageView.widthAnchor.constraint(equalToConstant: AppConstants.avatarSize),
             profileImageView.heightAnchor.constraint(equalToConstant: AppConstants.avatarSize),
             
             nickName.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
-            nickName.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: AppConstants.leftAnchorSize),
-            nickName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize),
+            nickName.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: AppConstants.leftIndentSize),
+            nickName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightIndentSize),
             
             statusTextField.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -16),
             statusTextField.heightAnchor.constraint(equalToConstant: 50),
-            statusTextField.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: AppConstants.leftAnchorSize),
-            statusTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize),
+            statusTextField.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: AppConstants.leftIndentSize),
+            statusTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightIndentSize),
             
             setStatusButton.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 57),
-            setStatusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: AppConstants.leftAnchorSize),
-            setStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize),
+            setStatusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: AppConstants.leftIndentSize),
+            setStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightIndentSize),
             setStatusButton.heightAnchor.constraint(equalToConstant: 50),
-            setStatusButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: AppConstants.rightAnchorSize),
+            setStatusButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: AppConstants.rightIndentSize),
             
             addPhotoButton.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: -5),
             addPhotoButton.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -5),
@@ -120,8 +120,8 @@ class ProfileHeaderView: UIView {
             addPhotoButton.widthAnchor.constraint(equalToConstant: 26),
             
             curentStatus.bottomAnchor.constraint(equalTo: statusTextField.topAnchor, constant: -5),
-            curentStatus.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: AppConstants.leftAnchorSize),
-            curentStatus.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightAnchorSize)
+            curentStatus.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: AppConstants.leftIndentSize),
+            curentStatus.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: AppConstants.rightIndentSize)
         ])
         
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width:self.frame.size.width , height: 50))

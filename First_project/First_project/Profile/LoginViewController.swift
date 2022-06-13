@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside )
         return button
     }()
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,18 +84,18 @@ class LoginViewController: UIViewController {
             logo.topAnchor.constraint(equalTo: areaView.topAnchor,constant: 120),
             
             profileLogin.heightAnchor.constraint(equalToConstant: 50),
-            profileLogin.leadingAnchor.constraint(equalTo: areaView.leadingAnchor,constant: AppConstants.leftAnchorSize),
-            profileLogin.trailingAnchor.constraint(equalTo: areaView.trailingAnchor,constant: AppConstants.rightAnchorSize),
+            profileLogin.leadingAnchor.constraint(equalTo: areaView.leadingAnchor,constant: AppConstants.leftIndentSize),
+            profileLogin.trailingAnchor.constraint(equalTo: areaView.trailingAnchor,constant: AppConstants.rightIndentSize),
             profileLogin.topAnchor.constraint(equalTo: logo.bottomAnchor,constant: 120),
             
             profilePassword.heightAnchor.constraint(equalToConstant: 50),
-            profilePassword.leadingAnchor.constraint(equalTo: areaView.leadingAnchor,constant: AppConstants.leftAnchorSize),
-            profilePassword.trailingAnchor.constraint(equalTo: areaView.trailingAnchor,constant: AppConstants.rightAnchorSize),
+            profilePassword.leadingAnchor.constraint(equalTo: areaView.leadingAnchor,constant: AppConstants.leftIndentSize),
+            profilePassword.trailingAnchor.constraint(equalTo: areaView.trailingAnchor,constant: AppConstants.rightIndentSize),
             profilePassword.topAnchor.constraint(equalTo: profileLogin.bottomAnchor),
             
-            loginButton.topAnchor.constraint(equalTo: profilePassword.bottomAnchor, constant: AppConstants.leftAnchorSize),
-            loginButton.leadingAnchor.constraint(equalTo: areaView.leadingAnchor, constant: AppConstants.leftAnchorSize),
-            loginButton.trailingAnchor.constraint(equalTo: areaView.trailingAnchor, constant: AppConstants.rightAnchorSize),
+            loginButton.topAnchor.constraint(equalTo: profilePassword.bottomAnchor, constant: AppConstants.leftIndentSize),
+            loginButton.leadingAnchor.constraint(equalTo: areaView.leadingAnchor, constant: AppConstants.leftIndentSize),
+            loginButton.trailingAnchor.constraint(equalTo: areaView.trailingAnchor, constant: AppConstants.rightIndentSize),
             loginButton.heightAnchor.constraint(equalToConstant: 50),
             loginButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
