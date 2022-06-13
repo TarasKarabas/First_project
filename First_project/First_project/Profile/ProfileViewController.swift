@@ -9,13 +9,13 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    private let dataSourseAdapter = StorageTableViewAdapter()
+    private let dataSourceAdapter = StorageTableViewAdapter()
     
     private lazy var profileTableView: UITableView = {
         var tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: String(describing: PostTableViewCell.identifier))
-        tableView.dataSource = dataSourseAdapter
-        tableView.delegate = dataSourseAdapter
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
+        tableView.dataSource = dataSourceAdapter
+        tableView.delegate = dataSourceAdapter
         
         return tableView
     }()

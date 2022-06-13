@@ -17,7 +17,7 @@ class PostTableViewCell: UITableViewCell {
                 return
             }
             postImageView.image = post.image
-            autorNameLabel.text = post.autor
+            autorNameLabel.text = post.author
             likesLabel.text = String(post.likes)
             descriptionLabel.text = post.description
             viewsLabel.text = String(post.views)
@@ -31,12 +31,19 @@ class PostTableViewCell: UITableViewCell {
         return iV
     } ()
     
-    private lazy var autorNameLabel = makeLabel(1, 22, .black)
-    private lazy var descriptionLabel = makeLabel(10, 14, .darkText)
+    private lazy var autorNameLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: CGFloat(20), weight: .bold)
+        label.textColor = .black
+        return label
+    }()
+    
+    private lazy var descriptionLabel = makeLabel(0, 14, .systemGray)
     private lazy var likesButton = makeCountsButton("hand.thumbsup")
-    private lazy var likesLabel = makeLabel(1, 18, .black)
+    private lazy var likesLabel = makeLabel(1, 16, .black)
     private lazy var viewsButton = makeCountsButton("eyes")
-    private lazy var viewsLabel = makeLabel(1, 18, .black)
+    private lazy var viewsLabel = makeLabel(1, 16, .black)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -72,7 +79,7 @@ private extension PostTableViewCell {
         
         NSLayoutConstraint.activate([
             
-            autorNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: AppConstants.heighZero),
+            autorNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: AppConstants.heightZero),
             autorNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: AppConstants.leftIndentSize),
             autorNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: AppConstants.rightIndentSize),
             autorNameLabel.bottomAnchor.constraint(equalTo: postImageView.topAnchor),
@@ -84,8 +91,8 @@ private extension PostTableViewCell {
             
             postImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 50),
             postImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -150),
-            postImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: AppConstants.leftIndentSize),
-            postImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppConstants.rightIndentSize),
+            postImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            postImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             postImageView.heightAnchor.constraint(equalToConstant: AppConstants.imageHeigh),
             postImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
@@ -113,6 +120,7 @@ private extension PostTableViewCell {
         let label = UILabel()
         label.numberOfLines = nOfLines
         label.font = UIFont.systemFont(ofSize: CGFloat(font))
+//        label.font = UIFont.systemFont(ofSize: CGFloat(font), weight: .bold)
         label.textColor = textColor
         return label
     }

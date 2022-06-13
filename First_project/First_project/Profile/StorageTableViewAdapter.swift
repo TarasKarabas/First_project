@@ -18,10 +18,10 @@ final class StorageTableViewAdapter: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = (tableView.dequeueReusableCell(withIdentifier: String(describing: PostTableViewCell.identifier), for: indexPath) as? PostTableViewCell)
+        let cell = (tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as? PostTableViewCell)
         cell?.post = Storage.posts[indexPath.section][indexPath.row]
         
-        return cell ?? PostTableViewCell()
+        return cell ?? UITableViewCell()
     }
 }
 

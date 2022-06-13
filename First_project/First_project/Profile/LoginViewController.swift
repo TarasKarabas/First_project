@@ -27,8 +27,8 @@ class LoginViewController: UIViewController {
         return logoPicture
     }()
     
-    lazy var profileLogin = makeTextField("Email or phone number", securityText: false)
-    lazy var profilePassword = makeTextField("Password", securityText: true)
+    lazy var profileLogin = makeTextField("Email or phone number", isSecurityText: false)
+    lazy var profilePassword = makeTextField("Password", isSecurityText: true)
     
     
     lazy var loginButton: UIButton = {
@@ -44,14 +44,14 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureProfileViewController()
+        configureLoginViewController()
         
         // MARK Keyboard observers
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    func configureProfileViewController() {
+    func configureLoginViewController() {
         
         view.backgroundColor = .white
         view.addSubview(scrollView)
@@ -142,7 +142,7 @@ class LoginViewController: UIViewController {
         print(scrollView.contentOffset.y)
     }
     
-    @objc func makeTextField(_ plaseHolder: String, securityText: Bool) -> UITextField {
+    @objc func makeTextField(_ placeHolder: String, isSecurityText: Bool) -> UITextField {
         let textField = UITextField()
         textField.setLeftPaddingPoints()
         textField.setRightPaddingPoints()
@@ -157,9 +157,9 @@ class LoginViewController: UIViewController {
         textField.textColor = .black
         textField.autocapitalizationType = .none
         textField.backgroundColor = .systemGray6
-        textField.isSecureTextEntry = securityText
+        textField.isSecureTextEntry = isSecurityText
         textField.rightViewMode = .unlessEditing
-        textField.placeholder = plaseHolder
+        textField.placeholder = placeHolder
         return textField
     }
 }
