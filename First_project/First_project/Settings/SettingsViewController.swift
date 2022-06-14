@@ -26,7 +26,7 @@ class SettingsViewController: UIViewController {
         view.backgroundColor = .systemGroupedBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Settings"
-        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.tintColor = AppConstants.buttonblue
         
         [areaView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -36,12 +36,12 @@ class SettingsViewController: UIViewController {
         NSLayoutConstraint.activate([
             areaView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             areaView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            areaView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: AppConstants.leftAnchorSize),
-            areaView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: AppConstants.rightAnchorSize)
+            areaView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: AppConstants.leftIndentSize),
+            areaView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: AppConstants.rightIndentSize)
         ])
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.badge.plus"), style: .plain, target: self, action: #selector(addNewProfile))
-        self.navigationItem.rightBarButtonItem?.tintColor = .black
+        self.navigationItem.rightBarButtonItem?.tintColor = AppConstants.buttonblue
     }
     
     override func viewWillAppear(_ animated: Bool) {

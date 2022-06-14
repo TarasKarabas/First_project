@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142914712820FED5003E28DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142914702820FED5003E28DC /* LoginViewController.swift */; };
+		14A61B7C283AD59700C8A68F /* PostsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A61B7B283AD59700C8A68F /* PostsStorage.swift */; };
+		14A61B7E283ADE2E00C8A68F /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A61B7D283ADE2E00C8A68F /* PostTableViewCell.swift */; };
+		14A61B80283D6A1300C8A68F /* StorageTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A61B7F283D6A1300C8A68F /* StorageTableViewAdapter.swift */; };
 		14BEA62227C61F8400192C65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA62127C61F8400192C65 /* AppDelegate.swift */; };
 		14BEA62427C61F8400192C65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA62327C61F8400192C65 /* SceneDelegate.swift */; };
 		14BEA62627C61F8400192C65 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEA62527C61F8400192C65 /* TabBarController.swift */; };
@@ -26,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		142914702820FED5003E28DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		14A61B7B283AD59700C8A68F /* PostsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsStorage.swift; sourceTree = "<group>"; };
+		14A61B7D283ADE2E00C8A68F /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		14A61B7F283D6A1300C8A68F /* StorageTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTableViewAdapter.swift; sourceTree = "<group>"; };
 		14BEA61E27C61F8400192C65 /* First_project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = First_project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14BEA62127C61F8400192C65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14BEA62327C61F8400192C65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14A61B7A283AD42A00C8A68F /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				14A61B7B283AD59700C8A68F /* PostsStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		14BEA61527C61F8400192C65 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +103,7 @@
 				14BEA62A27C61F8500192C65 /* Assets.xcassets */,
 				14BEA62F27C61F8500192C65 /* Info.plist */,
 				14C0A87927E869970090FFCF /* AuxiliaryElements */,
+				14A61B7A283AD42A00C8A68F /* Storage */,
 			);
 			path = First_project;
 			sourceTree = "<group>";
@@ -112,9 +129,12 @@
 			isa = PBXGroup;
 			children = (
 				14BEA63E27C6217600192C65 /* ProfileViewController.swift */,
+				14A61B7D283ADE2E00C8A68F /* PostTableViewCell.swift */,
+				14A61B7F283D6A1300C8A68F /* StorageTableViewAdapter.swift */,
+				142914702820FED5003E28DC /* LoginViewController.swift */,
+				14C0A87E27E878540090FFCF /* ProfileHeaderView.swift */,
 				14BEA64027C6218B00192C65 /* ShareViewController.swift */,
 				14BEA64227C621A000192C65 /* ProfileSettingsViewController.swift */,
-				14C0A87E27E878540090FFCF /* ProfileHeaderView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -223,12 +243,16 @@
 				14C0A87F27E878540090FFCF /* ProfileHeaderView.swift in Sources */,
 				14BEA62427C61F8400192C65 /* SceneDelegate.swift in Sources */,
 				14BEA64D27C6227D00192C65 /* AddNewProfileViewController.swift in Sources */,
+				14A61B7C283AD59700C8A68F /* PostsStorage.swift in Sources */,
 				14BEA63F27C6217600192C65 /* ProfileViewController.swift in Sources */,
 				14BEA63C27C6213D00192C65 /* SearchViewController.swift in Sources */,
 				14BEA64127C6218B00192C65 /* ShareViewController.swift in Sources */,
+				142914712820FED5003E28DC /* LoginViewController.swift in Sources */,
 				14BEA63927C620C400192C65 /* NewPostViewController.swift in Sources */,
 				14BEA64B27C6226B00192C65 /* SettingsViewController.swift in Sources */,
 				14C0A87B27E86A470090FFCF /* Extensions.swift in Sources */,
+				14A61B7E283ADE2E00C8A68F /* PostTableViewCell.swift in Sources */,
+				14A61B80283D6A1300C8A68F /* StorageTableViewAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +379,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LLH5T3CR5A;
@@ -383,7 +406,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LLH5T3CR5A;

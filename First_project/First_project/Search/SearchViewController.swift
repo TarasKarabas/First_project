@@ -35,8 +35,8 @@ class SearchViewController: UIViewController {
         NSLayoutConstraint.activate([
             areaView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             areaView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            areaView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: AppConstants.leftAnchorSize),
-            areaView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: AppConstants.rightAnchorSize)
+            areaView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: AppConstants.leftIndentSize),
+            areaView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: AppConstants.rightIndentSize)
         ])
         
         searchBar.sizeToFit()
@@ -60,7 +60,7 @@ class SearchViewController: UIViewController {
     func showSearchBarButton(show: Bool) {
         if show {
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(showSearchBar))
-            self.navigationItem.rightBarButtonItem?.tintColor = .black
+            self.navigationItem.rightBarButtonItem?.tintColor = AppConstants.buttonblue
         } else {
             navigationItem.rightBarButtonItem = nil
         }

@@ -9,7 +9,7 @@ import UIKit
 
 class ShareViewController: UIViewController {
 
-    private var button: UIButton = {
+    lazy var button: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 14
         button.layer.shadowColor = UIColor.black.cgColor
@@ -19,7 +19,7 @@ class ShareViewController: UIViewController {
         button.backgroundColor = AppConstants.buttonblue
         button.setTitle("Send", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.addTarget(self, action: #selector(sendTo), for: .touchUpInside )
+        button.addTarget( self, action: #selector(sendTo), for: .touchUpInside )
         return button
     }()
     
@@ -41,9 +41,9 @@ class ShareViewController: UIViewController {
         }
         
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: view.topAnchor, constant: AppConstants.leftAnchorSize),
-            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AppConstants.leftAnchorSize),
-            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: AppConstants.rightAnchorSize),
+            button.topAnchor.constraint(equalTo: view.topAnchor, constant: AppConstants.leftIndentSize),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AppConstants.leftIndentSize),
+            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: AppConstants.rightIndentSize),
             button.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
